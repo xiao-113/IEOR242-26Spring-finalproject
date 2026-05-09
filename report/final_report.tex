@@ -1,0 +1,218 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!60!black,
+  citecolor=blue!60!black,
+  urlcolor=blue!60!black
+}
+
+\setlist[itemize]{leftmargin=*, itemsep=0.35em}
+\setlist[enumerate]{leftmargin=*, itemsep=0.35em}
+
+\newcommand{\templatehint}[1]{%
+  \par\smallskip
+  \noindent\textcolor{gray!80}{\textit{#1}}
+  \par\smallskip
+}
+
+\title{\textbf{[Project Title]}\\\large IEOR 242 Spring 2026 Final Project Report}
+\author{Team Information Withheld in Public Repository}
+\date{Spring 2026}
+
+\begin{document}
+\maketitle
+
+\noindent\textit{This public repository version is a clean report template. Prior course identifiers and participant names have been removed. Replace the bracketed prompts below in your private submission copy.}
+
+\begin{abstract}
+\templatehint{Summarize the problem, dataset, main deep learning method, one advanced element beyond class material, strongest result, and one sentence on limitations. Keep this to roughly 150--250 words.}
+[Write abstract here.]
+\end{abstract}
+
+\section{Project Description and Motivation}
+\templatehint{Clearly identify the application, the use-case, and why the problem matters in its domain. Explain why a deep learning approach is appropriate instead of a simpler baseline alone.}
+
+\paragraph{Problem statement.}
+[State the learning task in one concise paragraph.]
+
+\paragraph{Motivation.}
+[Explain the domain relevance, practical value, and why the problem is conceptually interesting.]
+
+\paragraph{Project goals.}
+\begin{itemize}
+  \item [Goal 1] [State the main technical objective.]
+  \item [Goal 2] [State the evaluation or deployment-oriented objective.]
+  \item [Goal 3] [State the scientific question, ablation, or comparison you want to answer.]
+\end{itemize}
+
+\section{Data and Learning Problem}
+\templatehint{Describe the dataset clearly enough that a reader can understand the inputs, outputs, and prediction target without seeing the code. Discuss exploration, labeling, preprocessing, and any quality issues.}
+
+\subsection{Dataset Overview}
+\begin{itemize}
+  \item Dataset source: [Name, citation, or URL]
+  \item Domain: [Finance / vision / language / multimodal / other]
+  \item Number of samples: [Insert count]
+  \item Input representation: [Features, dimensionality, sequence length, image size, etc.]
+  \item Output / labels: [Classes, regression target, structured output, etc.]
+\end{itemize}
+
+\subsection{Learning Task Definition}
+\templatehint{Make the supervised, unsupervised, or self-supervised learning problem explicit. If supervised, define $X$, $Y$, and the mapping you are trying to learn.}
+
+Let $X$ denote [define inputs] and let $Y$ denote [define labels or targets]. Our task is to learn a mapping
+\[
+f_{\theta}: X \mapsto Y
+\]
+that optimizes performance on [state metric or task objective].
+
+\subsection{Data Preparation and Quality Considerations}
+\begin{itemize}
+  \item Preprocessing pipeline: [normalization, tokenization, feature engineering, augmentation, filtering, etc.]
+  \item Train / validation / test split: [chronological, random, grouped, cross-validation, etc.]
+  \item Data quality issues: [missing values, duplicates, noisy labels, outliers]
+  \item Class balance: [balanced / imbalanced, with counts or proportions]
+  \item Leakage prevention: [steps taken to ensure causal or proper separation]
+\end{itemize}
+
+\section{Methodology}
+\templatehint{This section should justify the architecture, objective, optimizer, and regularization strategy. You must also describe at least one advanced methodological element beyond what was covered in class.}
+
+\subsection{Model Architecture}
+\templatehint{Describe the network in enough detail that another student could reimplement it: layers, hidden dimensions, nonlinearities, normalization, attention, recurrence, or other structural choices.}
+
+[Describe your baseline model and your final model here.]
+
+\subsection{Objective Function and Training}
+We train parameters $\theta$ by solving
+\[
+\min_{\theta} \frac{1}{N} \sum_{i=1}^{N} L\bigl(f_{\theta}(X_i), Y_i\bigr) + R(\theta).
+\]
+
+\begin{itemize}
+  \item Loss $L$: [cross-entropy, MSE, focal loss, contrastive loss, etc.]
+  \item Optimizer: [mini-batch SGD, Adam, AdamW, etc.]
+  \item Learning-rate schedule: [constant, cosine decay, warmup, step decay, etc.]
+  \item Regularization $R(\theta)$: [$L_2$, dropout, data augmentation, early stopping, label smoothing, etc.]
+  \item Batch size / epochs: [insert values]
+\end{itemize}
+
+\subsection{Advanced Component Beyond Class Material}
+\templatehint{This is required. Examples include a newer architecture block, a specialized loss, transfer learning protocol, calibration method, uncertainty estimation, diffusion-style component, LoRA-style fine-tuning, a domain-specific augmentation, or another method not covered directly in lecture. Explain both what it is and why it helps for your problem.}
+
+[Describe the advanced component here, including its implementation details and rationale.]
+
+\subsection{Baselines and Comparisons}
+\templatehint{Explain what you compare against and why those comparisons are fair. At minimum, include one simpler baseline and one comparison that tests whether the advanced component helps.}
+
+\begin{itemize}
+  \item Baseline 1: [simple model or heuristic]
+  \item Baseline 2: [course-standard deep model]
+  \item Proposed model: [your final method]
+  \item Ablation: [remove advanced component / change loss / freeze layers / etc.]
+\end{itemize}
+
+\section{Experimental Setup}
+\templatehint{Provide enough detail for reproducibility: hardware, software stack, hyperparameter selection strategy, and the exact evaluation metrics.}
+
+\begin{itemize}
+  \item Hardware / runtime: [GPU type, CPU, training time]
+  \item Software: [PyTorch / TensorFlow / JAX version, key libraries]
+  \item Hyperparameter selection: [grid search, manual tuning, validation set]
+  \item Primary metrics: [accuracy, F1, AUROC, RMSE, BLEU, etc.]
+  \item Secondary diagnostics: [confusion matrix, calibration error, loss curves, qualitative outputs]
+\end{itemize}
+
+\section{Results and Discussion}
+\templatehint{Present both quantitative results and diagnostic analysis. You are expected to show training and validation loss curves and interpret them in terms of underfitting or overfitting.}
+
+\subsection{Main Results}
+\begin{table}[H]
+\centering
+\caption{Placeholder table for the main experimental results. Replace with your actual metrics.}
+\begin{tabular}{lccc}
+\toprule
+Model & Validation Metric & Test Metric & Notes \\
+\midrule
+Baseline 1 & [ ] & [ ] & [ ] \\
+Baseline 2 & [ ] & [ ] & [ ] \\
+Proposed model & [ ] & [ ] & [ ] \\
+Ablation & [ ] & [ ] & [ ] \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Training and Validation Curves}
+\begin{figure}[H]
+\centering
+\fbox{\rule{0pt}{2.2in}\rule{0.92\linewidth}{0pt}}
+\caption{Insert training and validation loss curves here. Discuss whether the model appears underfit, overfit, or well-regularized, and relate that diagnosis to your methodological choices.}
+\end{figure}
+
+\subsection{Interpretation}
+\begin{itemize}
+  \item What worked best, and why?
+  \item Where did the model fail or remain unstable?
+  \item Did the advanced component improve results? If so, under what conditions?
+  \item Is the final performance practically useful for the motivating use-case?
+\end{itemize}
+
+\templatehint{A scientifically valid conclusion can still be negative. If performance is insufficient, explain why the result is still informative.}
+
+[Write the main analysis here.]
+
+\section{Safety, Security, and Ethics}
+\templatehint{Assume the model is deployed at scale. Discuss potential harms, failure modes, misuse risks, privacy concerns, fairness issues, security vulnerabilities, and any domain-specific regulatory concerns. Tie the discussion back to your actual task rather than writing generic AI ethics text.}
+
+\begin{itemize}
+  \item Safety risks: [false positives / false negatives / unsafe recommendations / automation bias]
+  \item Security risks: [data poisoning, model inversion, prompt injection, adversarial manipulation, leakage]
+  \item Ethics concerns: [fairness, representational bias, consent, surveillance, unequal impact]
+  \item Mitigations: [human review, calibration thresholds, monitoring, audits, narrower deployment scope]
+\end{itemize}
+
+[Write the synthesized team discussion here.]
+
+\section{Presentation Summary}
+\templatehint{The course requires a short recorded presentation. Summarize the structure of the talk and optionally include a private link in the submission copy.}
+
+\begin{enumerate}
+  \item Problem formulation and motivation.
+  \item Dataset and preprocessing.
+  \item Model architecture and advanced component.
+  \item Main results and loss-curve diagnosis.
+  \item Risks, limitations, and next steps.
+\end{enumerate}
+
+\section{Conclusion}
+\templatehint{Conclude with the main technical takeaway, the strongest result, the main limitation, and one concrete future direction.}
+
+[Write conclusion here.]
+
+\section*{Submission Checklist}
+\begin{itemize}
+  \item Clear project description and motivation.
+  \item Dataset exploration and precise learning problem statement.
+  \item Architecture, activation functions, objective, optimizer, and regularization explained.
+  \item At least one advanced methodological component beyond course coverage.
+  \item Training and validation loss curves included and interpreted.
+  \item Final metrics discussed with an honest assessment of practical usefulness.
+  \item Safety, security, and ethics discussion included.
+  \item Short presentation prepared separately.
+\end{itemize}
+
+\end{document}
