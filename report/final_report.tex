@@ -31,7 +31,7 @@
 \begin{document}
 \maketitle
 
-\noindent\textit{Project recording: \url{https://berkeley.zoom.us/j/95578686380}}
+\noindent\textit{Project recording: \url{https://drive.google.com/file/d/1zK7ZiZg8Wxg2J7-WHNh5OBtrivTK9LTD/view}}
 
 \begin{abstract}
 This project studies whether a deep limit order book model can be reproduced on a standard benchmark and transferred to a materially different market setting. We reproduce DeepLOB on FI-2010 \cite{zhang2019deeplob,ntakaris2018benchmark} and adapt the same design to Optiver auction-book data \cite{optiverkaggle}, where only two book levels are visible. On FI-2010, the best short-horizon result reaches accuracy $0.8347$ and MCC $0.6080$ at 10 events, while the best long-horizon result reaches MCC $0.6943$ at 100 events under an adaptive training profile. We also compare the deep model against shallow manual-factor baselines and analyze 104 engineered microstructure factors, finding that price and volume derivative features dominate the qualified factor set. On Optiver, we focus on the rolling-quantile label mode and compare zero-shot transfer, per-stock fine-tuning, and specific-stock out-of-sample training. Accuracy is modest, but it is not the right standalone criterion: fine-tuning improves Cohen's $\kappa$ from $0.0618$ to $0.0844$ and MCC from $0.0626$ to $0.0847$, even when accuracy declines slightly. Cumulative normalized profit curves and a local LIME-style explanation provide complementary evidence. The main limitation is persistent nonstationarity: specific-stock out-of-sample training collapses to near-zero agreement, showing that transfer is constrained less by optimization than by distribution shift and label instability.
