@@ -25,13 +25,13 @@
 \setlist[enumerate]{leftmargin=*, itemsep=0.35em}
 
 \title{\textbf{DeepLOB Reproduction and Cross-Market Transfer for Limit Order Book Forecasting}\\\large IEOR 242 Spring 2026 Final Project Report}
-\author{Xiaoyang Xiao (Student ID: 3041882132)}
+\author{Xiaoyang Xiao (3041882132)\\Yuan Jiang (3041930349)\\Xuexuan Wang (3041945611)\\Qicheng Sun (3039765809)}
 \date{May 2026}
 
 \begin{document}
 \maketitle
 
-\noindent\textit{This repository version lists the submitting author only. Full team information and the presentation link can be added in the submission copy.}
+\noindent\textit{Project recording: \url{https://berkeley.zoom.us/j/95578686380}}
 
 \begin{abstract}
 This project studies whether a deep limit order book model can be reproduced on a standard benchmark and transferred to a materially different market setting. We reproduce DeepLOB on FI-2010 \cite{zhang2019deeplob,ntakaris2018benchmark} and adapt the same design to Optiver auction-book data \cite{optiverkaggle}, where only two book levels are visible. On FI-2010, the best short-horizon result reaches accuracy $0.8347$ and MCC $0.6080$ at 10 events, while the best long-horizon result reaches MCC $0.6943$ at 100 events under an adaptive training profile. We also compare the deep model against shallow manual-factor baselines and analyze 104 engineered microstructure factors, finding that price and volume derivative features dominate the qualified factor set. On Optiver, we focus on the rolling-quantile label mode and compare zero-shot transfer, per-stock fine-tuning, and specific-stock out-of-sample training. Accuracy is modest, but it is not the right standalone criterion: fine-tuning improves Cohen's $\kappa$ from $0.0618$ to $0.0844$ and MCC from $0.0626$ to $0.0847$, even when accuracy declines slightly. Cumulative normalized profit curves and a local LIME-style explanation provide complementary evidence. The main limitation is persistent nonstationarity: specific-stock out-of-sample training collapses to near-zero agreement, showing that transfer is constrained less by optimization than by distribution shift and label instability.
